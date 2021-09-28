@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<nav th:replace="layout::menu"></nav>
+	<div class="alert alert-primary" role="alert">
+		<h1 th:text="${mensaje}"></h1>
+	</div>
+</body>
+</html>

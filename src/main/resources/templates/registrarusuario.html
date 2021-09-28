@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}"></title>
+<script type="text/javascript" th:src="@{/js/jquery/jquery3.6.js}"></script>
+<script type="text/javascript"
+	th:src="@{/js/bootstrap/bootstrap.bundle.js}"></script>
+<script type="text/javascript" th:src="@{/js/jsweb/registrousuario.js}"></script>	
+<link th:href="@{/css/bootstrap/bootstrap.css}" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm"></div>
+			<div class="col-lg">
+				<div class="card">
+					<div class="card-header bg-primary text-white text-center">
+						REGISTRO DE USUARIO</div>
+					<div class="card-body">
+						<form th:action="@{/registrar}" method="post"
+							th:object="${usuario}">
+							<div class="mb-3">
+								<label for="txtnombres" class="form-label">Nombres </label> <input
+									type="text" class="form-control" id="txtnombres"
+									placeholder="Ingrese su nombre" th:field="*{nombres}"><span
+									id="errornombres" class="text-danger"></span>
+							</div>
+							<div class="mb-3">
+								<label for="txtapellidos" class="form-label">Apellidos </label>
+								<input type="text" class="form-control" id="txtapellidos"
+									placeholder="Ingrese su apellido" th:field="*{apellidos}"><span
+									id="errorapellidos" class="text-danger"></span>
+							</div>
+							<div class="mb-3">
+								<label for="txtusuario" class="form-label">Usuario </label> <input
+									type="text" class="form-control" id="txtusuario"
+									placeholder="Ingrese su usuario" th:field="*{nomusuario}"><span
+									id="errorusuario" class="text-danger"></span>
+							</div>
+							<div class="mb-3">
+								<label for="txtpassword" class="form-label">Password </label> <input
+									type="password" class="form-control" id="txtpassword"
+									placeholder="Ingrese su password" th:field="*{passusuario}"><span
+									id="errorpassword" class="text-danger"></span>
+							</div>
+							<div class="text-center">
+								<button type="submit" class="btn btn-primary">Registrar
+									Usuario</button>
+							</div>
+							<div class="text-center">
+								Ya tienes cuenta ingresa <a th:href="@{/login}">aquí</a>
+							</div>
+							<div th:if="${visualizar}" class="alert alert-dismissible fade show"
+								th:classappend="${registro} ? alert-success : alert-danger" role="alert">
+								<span th:text="${mensajeerror} ?: ''"></span>
+								<button type="button" class="btn-close" data-bs-dismiss="alert"
+									aria-label="Close"></button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm"></div>
+		</div>
+	</div>
+</body>
+</html>
